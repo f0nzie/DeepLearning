@@ -1,18 +1,18 @@
 ---
 title: "Tufte Handout"
-subtitle: "An implementation in R Markdown"
 author: "JJ Allaire and Yihui Xie"
-date: "`r Sys.Date()`"
+date: '`r Sys.Date()`'
 output:
-  tufte::tufte_html: default
   tufte::tufte_handout:
     citation_package: natbib
     latex_engine: xelatex
   tufte::tufte_book:
     citation_package: natbib
     latex_engine: xelatex
-bibliography: skeleton.bib
+  tufte::tufte_html: default
 link-citations: yes
+subtitle: An implementation in R Markdown
+bibliography: skeleton.bib
 ---
 
 ```{r setup, include=FALSE}

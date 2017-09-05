@@ -1,51 +1,36 @@
----
-title: "Logistic Regression"
-author: "Andrew Ng"
-date: '`r Sys.Date()`'
-output:
-  tufte::tufte_html: default
-  tufte::tufte_handout:
-    citation_package: natbib
-    latex_engine: xelatex
-  tufte::tufte_book:
-    citation_package: natbib
-    latex_engine: xelatex
-link-citations: yes
-subtitle: Week 2, Lecture 02
-bibliography: skeleton.bib
----
-
-```{r setup, include=FALSE}
-library(tufte)
-# invalidate cache when the tufte version changes
-knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
-options(htmltools.dir.version = FALSE)
-```
+# Logistic Regression
+Andrew Ng  
+`r Sys.Date()`  
 
 
-```{r fig-fullwidth, fig.width = 10, fig.height = 2, fig.fullwidth = TRUE, fig.cap = "A full width figure.", warning=FALSE, cache=TRUE}
+
+
+
+```r
 knitr::include_graphics("../images/logreg-01.jpg")
 ```
+
+![A full width figure.](../images/logreg-01.jpg)
 
 
 In this video, we'll go over `logistic regression`. This is a learning algorithm that you use when the output labels Y in a supervised learning problem are all either zero or one, so for binary classification problems. 
 
 
 Given an input feature vector $x$ maybe corresponding to an image that you want to recognize as either a cat picture or not a cat picture, you want an algorithm that can output a prediction, which we'll call $\hat{y}$, which is your estimate of $y$.  
-```{marginfigure}
+
+```marginfigure
 More formally, you want $\hat{y}$ to be the probability of the chance that, $y$ is equal to one **given** the input features $x$.
 $$ \hat{y} =  P(y=1 | x)$$
 ```
 
-```{r fig-margin, fig.margin = TRUE, fig.cap = "Logistic Rgeression parameters", fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
-knitr::include_graphics("../images/logreg-03.jpg")
-```
+![Logistic Rgeression parameters](../images/logreg-03.jpg)
 So in other words, if $x$ is a picture, as we saw in the last video, you want $\hat{y}$ hat to tell you, what is the chance that this is a cat picture? So $x$, as we said in the previous video, is an $n_x$ dimensional vector, given that the **parameters** of the `logistic regression` will be $w$ which is also an $n_x$ dimensional vector, together with $b$, which is just a real number. 
 
 
 So given an input $x$ and the parameters $w$ and $b$, how do we generate the output $\hat{y}$? Well, one thing you could try, that doesn't work, would be to have $\hat{y}$ be $w^T + b$, kind of a linear function of the input $x$. And in fact, this is what you use if you were doing linear regression. But this isn't a very good algorithm for `binary classification` because you want $\hat{y}$ to be the chance that $y$ is equal to one. 
 
-```{marginfigure}
+
+```marginfigure
 So $\hat{y}$ should really be between zero and one, and it's difficult to enforce that because  $w^T + b$ can be much bigger than one, or it can even be negative, which doesn't make sense for probability, that you want it to be between zero and one. 
 $$0 \leq \hat{y} \leq 1$$
 ```
