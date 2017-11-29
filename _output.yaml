@@ -1,0 +1,3 @@
+tufte::tufte_handout:
+  toc: true
+  
