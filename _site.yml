@@ -1,0 +1,21 @@
+name: "Deep Learning with R"
+output_dir: .
+navbar:
+  title: "Deep Learning with R"
+  left:
+  - text: Home
+    href: index.html
+  - text: Tufte
+    href: tufte.html
+  - text: Tufte-2
+    href: tufte-2.html
+  - text: "Logistic Regression"
+    href: W202-Logistic_Regression.html
+  right:
+    - icon: fa-github
+      href: https://github.com/f0nzie/DeepLearning
+output:
+    html_document:
+        theme: flatly
+        css: style.css
+    output_dir: "."
