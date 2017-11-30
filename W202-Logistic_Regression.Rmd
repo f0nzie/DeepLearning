@@ -34,14 +34,16 @@ $$ \hat{y} =  P(y=1 | x)$$
 knitr::include_graphics("./images/logreg-03.jpg")
 ```
 
-So in other words, if $x$ is a picture, as we saw in the last video, you want $\hat{y}$ hat to tell you, what is the chance that this is a cat picture? So $x$, as we said in the previous video, is an $n_x$ dimensional vector $\mathbb{R}^{n_x}$, given that the **parameters** of the `logistic regression` will be $w$ which is also an $n_x$ dimensional vector $\mathbb{R}^{n_x}$, together with $b$, which is just a real number $\mathbb{R}$. 
+So in other words, if $x$ is a picture, as we saw in the last video, you want  (y-hat), $\hat{y}$ to tell you, what is the chance that this is a cat picture? So $x$, as we said in the previous video, is an $n_x$ dimensional vector $\mathbb{R}^{n_x}$, given that the **parameters** of the `logistic regression` will be $w$ which is also an $n_x$ dimensional vector $\mathbb{R}^{n_x}$, together with $b$, which is just a real number $\mathbb{R}$. 
 
 ```{marginfigure}
 So $\hat{y}$ should really be between zero and one, and it's difficult to enforce that because  $w^T x + b$ can be much bigger than one, or it can even be negative, which doesn't make sense for probability, that you want it to be between zero and one. 
 $$0 \leq \hat{y} \leq 1$$
 ```
 
-So given an input $x$ and the parameters $w$ and $b$, how do we generate the output $\hat{y}$? Well, one thing you could try, that doesn't work, would be to have $\hat{y}$ be $w^T x + b$, kind of a linear function of the input $x$. And in fact, this is what you use if you were doing linear regression. But this isn't a very good algorithm for `binary classification` because you want $\hat{y}$ to be the chance that $y$ is equal to one. 
+So given an input $x$ and the parameters $w$ and $b$, how do we generate the output $\hat{y}$? 
+
+Well, one thing you could try, that doesn't work, would be to have $\hat{y}$ be $w^T x + b$, kind of a linear function of the input $x$. And in fact, this is what you use if you were doing linear regression. But this isn't a very good algorithm for `binary classification` because you want $\hat{y}$ to be the chance that $y$ is equal to one. 
 
 
 ```{marginfigure}
@@ -52,7 +54,7 @@ So in logistic regression our output is instead going to be $\hat{y}$ equals the
 knitr::include_graphics("./images/SigmoidFunction_701.jpg")
 ```
 
-If on the horizontal axis I plot $z$, then the function sigmoid of $z$ looks like this. So it goes smoothly from zero up to one. Let me label my axes here, this is zero and it crosses the vertical axis as 0.5. So this is what sigmoid of $z$ looks like. And we're going to use $z$ to denote this quantity, $w^T x + b$. 
+If on the horizontal axis I plot $z$, then the function "sigmoid of z", $\sigma(z)$, looks like this. So, it goes smoothly from zero up to one. Let me label my axes here: this is zero and it crosses the vertical axis as 0.5. So this is what sigmoid of $z$ looks like. And we're going to use $z$ to denote this quantity, $w^T x + b$. 
 
 ```{marginfigure}
 Here's the formula for the sigmoid function: Sigmoid of $z$, where $z$ is a real number $\mathbb{R}$, is one over one plus $e$ to the negative $z$.
@@ -63,11 +65,11 @@ knitr::include_graphics("./images/logreg-sigmoid.jpg")
 ```
 
 
-So notice a couple of things: ff $z$ is very large then $e^{-z}$ will be close to zero ($e^{-z} \approx 0$). So then $\sigma(z)$  will be approximately $\frac{1}{1 + \approx0}$, because $e$ to the negative of very large number will be close to zero. So this is close to 1. And indeed, if you look in the plot on the left, if $z$ is very large the $\sigma(z)$ is very close to one.
+So notice a couple of things: if $z$ is very large then $e^{-z}$ will be close to zero ($e^{-z} \approx 0$). So then $\sigma(z)$  will be approximately $\frac{1}{1 + \approx0}$, because $e$ to the negative of very large number will be close to zero. So this is close to 1. And indeed, if you look in the plot on the left, if $z$ is very large the $\sigma(z)$ is very close to one.
 
-$$\sigma(z) \approx 1, \text{if } z \to \infty$$
+$$\sigma(z) \approx 1, \text{if } z \to +\infty$$
 
-Conversely, if $z$ is very small, or it is a very large negative number, then $\sigma(z)$ becomes $\frac{1}{1 + e{- -\infty}}$, and this becomes, it's a huge number. So this becomes, think of it as one over one plus a number that is very, very big, and so, that's close to zero. And indeed, you see that as $z$ becomes a very large negative number, $\sigma(z)$ goes very close to zero.
+Conversely, if $z$ is very small, or it is a very large negative number, then $\sigma(z)$ becomes $\frac{1}{1 + e{- -\infty}}$, and this becomes ..., it's a huge number. So this becomes, think of it as one over one plus a number that is very, very big, and so, that's close to zero. And indeed, you see that as $z$ becomes a very large negative number, $\sigma(z)$ goes very close to zero.
 
 $$\sigma(z) \approx 0, \text{if } z \to -\infty$$  
 
@@ -95,4 +97,4 @@ It turns out, when you implement your neural network, it will be easier to just 
 
 If you've not seen this notation before in other courses, don't worry about it. It's just that for those of you that have seen this notation I wanted to mention explicitly that we're not using that notation in this course. But if you've not seen this before, it's not important and you don't need to worry about it. 
 
-So you have now seen what the logistic regression model looks like. Next to change the parameters $w$ and $b$ you need to define a cost function.
+So you have now seen what the logistic regression model looks like. Next to change the parameters $w$ and $b$ you need to define a **cost function**.
