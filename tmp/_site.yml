@@ -1,27 +1,14 @@
-name: "Deep Learning with R"
-output_dir: "."
+name: my-website
+output_dir: .
 navbar:
-  title: "Deep Learning with R"
+  title: Deep Learning
   left:
-  - icon: fa-home
+  - text: Home
     href: index.html
-  - text: "Articles"
-    menu:
-      - text: Tufte
-        href: tufte.html
-      - text: "Tufte-2"
-        href: tufte-2.html
-      - text: Tufte-3
-        href: tufte-3.html    
-      - text: "Logistic Regression"
-        href: W202-Logistic_Regression.html
-      - text: "Sample"
-        href: sample.html
-      - text: "Github"
-        href: github.html        
-  right:
-    - icon: fa-github
-      href: https://github.com/f0nzie/DeepLearning
+  - text: Week 1
+    href: week_01.html
 output:
-    html_document:
-        theme: flatly
+  html_document:
+    lib_dir: site_libs
+    self_contained: no
+

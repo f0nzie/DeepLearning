@@ -35,18 +35,20 @@ So with that, let's get started.
 
 # Theory
 
-```{r fig.margin = TRUE, fig.cap = "Here is an example of binary classification problem", fig.width=4.5, fig.height=4.5, cache=TRUE, echo=FALSE}
-knitr::include_graphics("./images/bin_cats_0_1.png")
+```{r fig.margin = TRUE, fig.cap = "Here is an example of binary classification problem", fig.width=2.5, fig.height=2.5, cache=TRUE, echo=FALSE}
+knitr::include_graphics("./images/bin_cats.jpg")
 ```
 
 Logistic regression is an algorithm for binary classification. So let's start by setting up the problem. Here's an example of a binary classification problem. You might have an input of an image, like that, and want to output a label to recognize this image as either being a cat, in which case you output $1$, or not-cat in which case you output $0$, and we're going to use y to denote the output label. 
 
-```{r fig.margin = TRUE, fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
-knitr::include_graphics("./images/bin_rgb.png")
-```
+
 Let's look at how an image is represented in a computer. 
 
-To store an image your computer stores three separate matrices corresponding to the red, green, and blue color channels of this image. So if your input image is 64 pixels by 64 pixels, then you would have 3 64 by 64 matrices corresponding to the red, green and blue pixel intensity values for your images. Although to make this little slide I drew these as much smaller matrices, so these are actually 5 by 4 matrices rather than 64 by 64. 
+```{r fig.margin = TRUE, fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
+knitr::include_graphics("./images/bin_rgb.jpg")
+```
+
+To store an image your computer stores three separate matrices corresponding to the red, green, and blue color channels of this image. So if your input image is 64 pixels by 64 pixels, then you would have 3 64 by 64 matrices corresponding to the red, green and blue pixel intensity values for your images.^[Although to make this little slide I drew these as much smaller matrices, so these are actually 5 by 4 matrices rather than 64 by 64.] 
 
 
 So to turn these pixel intensity values- into a feature vector, what we're going to do is unroll all of these pixel values into an input feature vector x. So to unroll all these pixel intensity values into Feature vector, what we're going to do is define a feature vector x corresponding to this image as follows. We're just going to take all the pixel values 255, 231, and so on. 255, 231, and so on until we've listed all the red pixels. And then eventually 255 134 255, 134 and so on until we get a long feature vector listing out all the red, green and blue pixel intensity values of this image. If this image is a 64 by 64 image, the total dimension of this vector x will be 64 by 64 by 3 because that's the total numbers we have in all of these matrixes. Which in this case, turns out to be 12,288, that's what you get if you multiply all those numbers. And so we're going to use nx=12288 to represent the dimension of the input features x. And sometimes for brevity, I will also just use lowercase n to represent the dimension of this input feature vector. So in binary classification, our goal is to learn a classifier that can input an image represented by this feature vector x, and predict whether the corresponding label y is 1 or 0, that is, whether this is a cat image or a non-cat image. 
