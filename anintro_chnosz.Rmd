@@ -145,6 +145,7 @@ There are also links to the *demos* (longer examples) and *vignettes* (more in-d
 
 Suggestions for accessing the documentation are indicated here with <span style="color:blue">blue text</span>.
 For example, read <span style="color:blue">``?`CHNOSZ-package` ``</span> to get an overview of the package and a list of features.
+
 ```{marginfigure}
 "`?`" is a shortcut to R's `help()` function.
 The command here is equivalent to <span style="color:blue">`help("CHNOSZ-package")`</span>.
