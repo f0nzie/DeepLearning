@@ -1,8 +1,6 @@
 ---
 title: "Week 1"
-output:
-  html_document:
-    df_print: paged
+output: html_document
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 title: "Deep Learning Book"
+output: html_document
 ---
 
 Course 1

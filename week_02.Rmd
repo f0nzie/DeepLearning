@@ -1,12 +1,10 @@
 ---
 title: "Week 2"
-output:
-  html_document:
-    df_print: paged
+output: html_document
 ---
 
 
 
-## [1. Introduction](w201-introduction.html)
+## [1. Binary Classification](w201-binary_classification.html)
 
-## [2. Logistic Regression](W202-Logistic_Regression.html)
+## [2. Logistic Regression](w202-logistic_regression.html)

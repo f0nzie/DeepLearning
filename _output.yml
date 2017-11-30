@@ -1,0 +1,5 @@
+tufte::tufte_html:
+  toc: false
+  fig_width: 6
+  dev: "svg"
+

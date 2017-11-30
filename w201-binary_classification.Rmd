@@ -4,7 +4,8 @@ subtitle: "Week 02 Lecture 01"
 author: "Author: Andrew Ng."
 date: '`r Sys.Date()` - Typed to Tufte notebook: Alfonso R. Reyes'
 output:
-  tufte::tufte_html: default
+  tufte::tufte_html:
+    tufte_variant: "default"
 bibliography: skeleton.bib
 link-citations: yes
 ---
@@ -15,6 +16,8 @@ library(tufte)
 knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
+
+[Week 1]() [Week 2](week_02.html)
 
 # Introduction
 Hello, and welcome back. In this week we're going to go over the basics of **neural network programming**.
