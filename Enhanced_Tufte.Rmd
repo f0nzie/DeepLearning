@@ -43,7 +43,6 @@ There are two goals of this package:
 1. To provide simple syntax to write elements of the Tufte style such as side notes and margin figures, e.g. when you want a margin figure, all you need to do is the chunk option `fig.margin = TRUE`, and we will take care of the details for you, so you never need to think about <span style="color:red">`\begin{marginfigure} \end{marginfigure}` </span> or <span style="color:red">`<span class="marginfigure"> </span>`</span>; the LaTeX and HTML code under the hood may be complicated, but you never need to learn or write such code.
 
 
-
 # Headings
 
 This style provides first and second-level headings (that is, `#` and `##`), demonstrated in the next section. You may get unexpected output if you try to use `###` and smaller headings.
@@ -56,7 +55,7 @@ This style provides first and second-level headings (that is, `#` and `##`), dem
 
 ## Margin Figures
 
-Images and graphics play an integral role in Tufte's work. To place figures in the margin you can use the **knitr** chunk option `fig.margin = TRUE`. For example:
+`r newthought('Images and graphics')` play an integral role in Tufte's work. To place figures in the margin you can use the **knitr** chunk option `fig.margin = TRUE`. For example:
 
 ```{r fig-margin, fig.margin = TRUE, fig.cap = "MPG vs horsepower, colored by transmission.", fig.width=3.5, fig.height=3.5, cache=TRUE, message=FALSE}
 
