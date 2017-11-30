@@ -1,17 +1,17 @@
 ---
 title: "Logistic Regression"
+subtitle: Week 2, Lecture 02
 author: "Author: Andrew Ng."
 date: '`r Sys.Date()` - Typed to Tufte notebook: Alfonso R. Reyes'
 output:
   tufte::tufte_html: default
-  tufte::tufte_handout:
-    citation_package: natbib
-    latex_engine: xelatex
   tufte::tufte_book:
     citation_package: natbib
     latex_engine: xelatex
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
 link-citations: yes
-subtitle: Week 2, Lecture 02
 bibliography: skeleton.bib
 ---
 
