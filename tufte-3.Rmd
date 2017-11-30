@@ -1,9 +1,10 @@
 ---
 title: "An Example Using the Tufte Style"
+subtitle: "Enhanced version"
 author: "John Smith"
 output:
-  tufte::tufte_html: default
-  tufte::tufte_handout: default
+  tufte::tufte_html:
+    tufte_variant: "default"
 ---
 
 ```{r setup, include=FALSE}
@@ -35,13 +36,13 @@ There are two goals of this package:
 1. To produce both PDF and HTML output with similar styles from the same R Markdown document;
 1. To provide simple syntax to write elements of the Tufte style such as side notes and margin figures, e.g. when you want a margin figure, all you need to do is the chunk option `fig.margin = TRUE`, and we will take care of the details for you, so you never need to think about `\begin{marginfigure} \end{marginfigure}` or `<span class="marginfigure"> </span>`; the LaTeX and HTML code under the hood may be complicated, but you never need to learn or write such code.
 
-If you have any feature requests or find bugs in **tufte**, please do not hesitate to file them to https://github.com/rstudio/tufte/issues. For general questions, you may ask them on StackOverflow: http://stackoverflow.com/tags/rmarkdown.
+
 
 # Headings
 
 This style provides first and second-level headings (that is, `#` and `##`), demonstrated in the next section. You may get unexpected output if you try to use `###` and smaller headings.
 
-# Newthough Style
+# Newthought Style
 
 `r newthought('In his later books')`^[[Beautiful Evidence](http://www.edwardtufte.com/tufte/books_be)], Tufte starts each section with a bit of vertical space, a non-indented paragraph, and sets the first few words of the sentence in small caps. To accomplish this using this style, call the `newthought()` function in **tufte** in an _inline R expression_ `` `r ` `` as demonstrated at the beginning of this paragraph.^[Note you should not assume **tufte** has been attached to your R session. You should either `library(tufte)` in your R Markdown document before you call `newthought()`, or use `tufte::newthought()`.]
 
@@ -114,10 +115,11 @@ $$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
 If you need to write anything in `Markdown` syntax, please use the `marginfigure` block described previously.
 
 
-
 # References
 
-References can be displayed as margin notes for HTML output. For example, we can cite R here [@R-base]. To enable this feature, you must set `link-citations: yes` in the YAML metadata, and the version of `pandoc-citeproc` should be at least 0.7.2. You can always install your own version of Pandoc from http://pandoc.org/installing.html if the version is not sufficient. To check the version of `pandoc-citeproc` in your system, you may run this in R:
+References can be displayed as margin notes for HTML output. For example, we can cite R here [@R-base]. To enable this feature, you must set `link-citations: yes` in the YAML metadata, and the version of `pandoc-citeproc` should be at least 0.7.2. 
+
+You can always install your own version of Pandoc from http://pandoc.org/installing.html if the version is not sufficient. To check the version of `pandoc-citeproc` in your system, you may run this in R:
 
 ```{r eval=FALSE}
 system2('pandoc-citeproc', '--version')
@@ -217,14 +219,17 @@ p + geom_smooth(method = 'lm') + facet_grid(~ gear)
 
 # Some Notes on Tufte CSS
 
-There are a few other things in Tufte CSS that we have not mentioned so far. If you prefer `r sans_serif('sans-serif fonts')`, use the function `sans_serif()` in **tufte**. For epigraphs, you may use a pair of underscores to make the paragraph italic in a block quote, e.g.
+## Sans-Serif
+There are a few other things in Tufte CSS that we have not mentioned so far. If you prefer `r sans_serif('sans-serif fonts')`, use the function `sans_serif()` in **tufte**. 
+
+## Epigraphs
+For epigraphs, you may use a pair of underscores to make the paragraph italic in a block quote, e.g.
 
 > _I can win an argument on any topic, against any opponent. People know this, and steer clear of me at parties. Often, as a sign of their great respect, they don't even invite me._
 >
 > `r quote_footer('--- Dave Barry')`
 
-We hope you will enjoy the simplicity of R Markdown and this R package, and we sincerely thank the authors of the Tufte-CSS and Tufte-LaTeX projects for developing the beautiful CSS and LaTeX classes. Our **tufte** package would not have been possible without their heavy lifting.
-
+## Turn features on, off 
 You can turn on/off some features of the Tufte style in HTML output. The default features enabled are:
 
 ```yaml
@@ -233,7 +238,10 @@ output:
     tufte_features: ["fonts", "background", "italics"]
 ```
 
-If you do not want the page background to be lightyellow, you can remove `background` from `tufte_features`. You can also customize the style of the HTML page via a CSS file. For example, if you do not want the subtitle to be italic, you can define
+If you do not want the page background to be lightyellow, you can remove `background` from `tufte_features`. 
+
+## CSS style
+You can also customize the style of the HTML page via a CSS file. For example, if you do not want the subtitle to be italic, you can define
 
 ```css
 h3.subtitle em {
@@ -250,7 +258,8 @@ output:
     css: "my_style.css"
 ```
 
-There is also a variant of the Tufte style in HTML/CSS named "[Envisoned CSS](http://nogginfuel.com/envisioned-css/)". This style can be used by specifying the argument `tufte_variant = 'envisioned'` in `tufte_html()`^[The actual Envisioned CSS was not used in the **tufte** package. We only changed the fonts, background color, and text color based on the default Tufte style.], e.g.
+## Envisioned Style Variant
+There is also a variant of the Tufte style in HTML/CSS named "[Envisioned CSS](http://nogginfuel.com/envisioned-css/)". This style can be used by specifying the argument `tufte_variant = 'envisioned'` in `tufte_html()`^[The actual Envisioned CSS was not used in the **tufte** package. We only changed the fonts, background color, and text color based on the default Tufte style.], e.g.
 
 ```yaml
 output:
@@ -258,6 +267,8 @@ output:
     tufte_variant: "envisioned"
 ```
 
+
+# Source code
 To see the R Markdown source of this example document, you may follow [this link to Github](https://github.com/rstudio/tufte/raw/master/inst/rmarkdown/templates/tufte_html/skeleton/skeleton.Rmd), use the wizard in RStudio IDE (`File -> New File -> R Markdown -> From Template`), or open the Rmd file in the package:
 
 ```{r eval=FALSE}
@@ -268,9 +279,15 @@ file.edit(
 )
 ```
 
+# Other languages
 This document is also available in [Chinese](http://rstudio.github.io/tufte/cn/), and its `envisioned` style can be found [here](http://rstudio.github.io/tufte/envisioned/).
 
 ```{r bib, include=FALSE}
 # create a bib file for the R packages used in this document
 knitr::write_bib(c('base', 'rmarkdown'), file = 'skeleton.bib')
 ```
+
+# Thanks
+We hope you will enjoy the simplicity of R Markdown and this R package, and we sincerely thank the authors of the Tufte-CSS and Tufte-LaTeX projects for developing the beautiful CSS and LaTeX classes. Our **tufte** package would not have been possible without their heavy lifting.
+
+If you have any feature requests or find bugs in **tufte**, please do not hesitate to file them to https://github.com/rstudio/tufte/issues. For general questions, you may ask them on StackOverflow: http://stackoverflow.com/tags/rmarkdown.
