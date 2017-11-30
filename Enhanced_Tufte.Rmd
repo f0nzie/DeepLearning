@@ -122,7 +122,10 @@ If you need to write anything in `Markdown` syntax, please use the `marginfigure
 
 # References
 
-References can be displayed as margin notes for HTML output. For example, we can cite R here [@R-base]. To enable this feature, you must set `link-citations: yes` in the YAML metadata, and the version of `pandoc-citeproc` should be at least 0.7.2. 
+References can be displayed as margin notes for HTML output. For example, we can cite R here [@R-base]. To enable this feature:
+
+* you must set `link-citations: yes` in the YAML metadata, and the version of `pandoc-citeproc` should be at least 0.7.2. 
+* a bibliography file must be present in the current folder For this example, we are using `skeleton.bib`
 
 You can always install your own version of Pandoc from http://pandoc.org/installing.html if the version is not sufficient. To check the version of `pandoc-citeproc` in your system, you may run this in R:
 
@@ -134,7 +137,7 @@ If your version of `pandoc-citeproc` is too low, or you did not set `link-citati
 
 # Tables
 
-You can use the `kable()` function from the **knitr** package to format tables that integrate well with the rest of the Tufte handout style. The table captions are placed in the margin like figures in the HTML output.
+You can use the `kable()` function from the **knitr** package to format tables that integrate well with the rest of the Tufte handout style. The **table captions** are placed in the margin like figures in the HTML output.
 
 ```{r}
 knitr::kable(
@@ -144,12 +147,14 @@ knitr::kable(
 
 # Block Quotes
 
+## with quote footer
 We know from the Markdown syntax that paragraphs that start with `>` are converted to block quotes. If you want to add a right-aligned footer for the quote, you may use the function `quote_footer()` from **tufte** in an inline R expression. Here is an example:
 
 > "If it weren't for my lawyer, I'd still be in prison. It went a lot faster with two people digging."
 >
 > `r tufte::quote_footer('--- Joe Martin')`
 
+## without quote footer
 Without using `quote_footer()`, it looks like this (the second line is just a normal paragraph):
 
 > "Great people talk about ideas, average people talk about things, and small people talk about wine."
@@ -273,7 +278,7 @@ output:
 ```
 
 
-# Source code
+## Source code
 To see the R Markdown source of this example document, you may follow [this link to Github](https://github.com/rstudio/tufte/raw/master/inst/rmarkdown/templates/tufte_html/skeleton/skeleton.Rmd), use the wizard in RStudio IDE (`File -> New File -> R Markdown -> From Template`), or open the Rmd file in the package:
 
 ```{r eval=FALSE}
@@ -284,7 +289,7 @@ file.edit(
 )
 ```
 
-# Other languages
+## Other languages
 This document is also available in [Chinese](http://rstudio.github.io/tufte/cn/), and its `envisioned` style can be found [here](http://rstudio.github.io/tufte/envisioned/).
 
 ```{r bib, include=FALSE}
