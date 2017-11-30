@@ -5,12 +5,6 @@ author: "Author: Andrew Ng."
 date: '`r Sys.Date()` - Typed to Tufte notebook: Alfonso R. Reyes'
 output:
   tufte::tufte_html: default
-  tufte::tufte_book:
-    citation_package: natbib
-    latex_engine: xelatex
-  tufte::tufte_handout:
-    citation_package: natbib
-    latex_engine: xelatex
 bibliography: skeleton.bib
 link-citations: yes
 ---
