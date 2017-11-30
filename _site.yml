@@ -1,0 +1,13 @@
+name: my-website
+output_dir: "."
+navbar:
+  title: "Deep Learning"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Week 1"
+      href: week_01.html
+output:
+  tufte::tufte_html:
+    toc: true
+    highlight: textmate
