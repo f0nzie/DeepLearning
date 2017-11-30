@@ -16,6 +16,8 @@ knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
+[Week 1](week_01.html) [Week 2](week_02.html)
+
 # Introduction
 The term Deep Learning, refers to training Neural Networks, sometimes very large Neural Networks. 
 

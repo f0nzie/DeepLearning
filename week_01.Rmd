@@ -7,4 +7,4 @@ output: html_document
 
 ## [1. Introduction](w101-introduction.html)
 
-## [2. What is a Neural Network](w101-introduction.html)
+## [2. What is a Neural Network](w102-what_is_a_neural_network.html)

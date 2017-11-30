@@ -17,7 +17,7 @@ knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
-[Week 1]() [Week 2](week_02.html)
+[Week 1](week_01.html) [Week 2](week_02.html)
 
 ## Introduction
 In this video, we'll go over `logistic regression`. This is a learning algorithm that you use when the output labels $y$ in a supervised learning problem are all either zero or one, for binary classification problems. 
