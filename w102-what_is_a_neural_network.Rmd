@@ -30,24 +30,28 @@ In this video, let's try to give you some of the basic intuitions.
 
 ## Housing Price Prediction
 
-Let's start to the Housing Price Prediction example. Let's say you have a data sets with six houses, so you know the size of the houses in square feet or square meters, and you know the price of the house and you want to fit a function to predict the price of the houses, the function of the size. 
+Let's start to the Housing Price Prediction example. Let's say you have a data sets with six houses, so you know the size of the houses in square feet or square meters, and you know the price of the house and you want to fit a function to predict the price of the houses, the function of the size.
 
-```{r fig.margin = TRUE, fig.cap = "Logistic Regression parameters", fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
+```{r house_price, fig.margin = TRUE, fig.cap = "Logistic Regression parameters", fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
 knitr::include_graphics("./images/what_house.jpg")
 ```
 So if you are familiar with linear regression you might say, well let's put a straight line to these data. So, and we get a straight line like that. But to be ?????? you might say well we know that prices can never be negative, right. So instead of the straight line fit which eventually will become negative, let's bend the curve here. So it just ends up zero here. So this thick blue line ends up being your function for predicting the price of the house as a function of the size. Whereas zero here and then there's a straight line fit to the right.
 
-```{r fig.margin = TRUE, fig.cap = "A neuron", fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
+```{r fig.margin = TRUE, fig.cap = "We have as the input to the neural network the **size** of a house which one we call $x$, it goes into this node, this little circle, and then it outputs the **price** which we call $y$.", fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
 knitr::include_graphics("./images/what_neuron.jpg")
 ```
-So you can think of this function that you've just fit the housing prices as a very simple neural network. It's almost as simple as possible neural network. Let me draw it here. We have as the input to the neural network the size of a house which one we call $x$, it goes into this node, this little circle, and then it outputs the price which we call $y$.
+So you can think of this function that you've just fit the housing prices as a very simple neural network. It's almost as simple as possible neural network. 
 
-So this little circle, which is a single neuron in a neural network, implements this function that we drew on the left. And all what the neuron does is: it inputs the size, computes this linear function, takes a max of zero, and then outputs the estimated price. 
+Let me draw it here. 
 
-```{r fig.margin = TRUE, fig.cap = "ReLU", fig.width=3.0, fig.height=3.0, cache=TRUE, echo=FALSE}
+So this little circle, which is a single neuron in a neural network, implements this function that we drew in blue. And all what the neuron does is: it inputs the size, computes this linear function, takes a max of zero, and then outputs the estimated price. 
+
+And by the way in the neural network literature, you see this function a lot.
+
+```{r fig.margin = TRUE, fig.cap = "ReLU", fig.width=3.0, fig.height=3.0, cache=TRUE, echo=FALSE, out.width="80%"}
 knitr::include_graphics("./images/what_relu.png")
 ```
-And by the way in the neural network literature, you see this function a lot. This function which goes to zero sometimes and then it'll takes of as a straight line. This function is called a **ReLU** function which stands for rectified linear units. R-E-L-U. And rectified just means taking a max of 0 which is why you get a function shape like this. You don't need to worry about ReLU units for now but it's just something you see again later in this course. 
+This function which goes to zero sometimes and then it'll takes of as a straight line. This function is called a **ReLU** function which stands for rectified linear units. R-E-L-U. And rectified just means taking a `max of 0` which is why you get a function shape like this. You don't need to worry about ReLU units for now but it's just something you see again later in this course. 
 
 So if this is a single neuron, neural network, really a tiny little neural network.  A larger neural network, is then, formed by taking many of the single neurons and stacking them together. 
 
@@ -69,14 +73,13 @@ knitr::include_graphics("./images/what_neural_net2.jpeg")
 ```
 
 
-
 And so by stacking together a few of the single neurons or the simple predictors we have from the previous slide, we now have a slightly larger neural network. 
 
 Part of the magic of a neural network is that when you implement it, you need to give it just the input $x$, and the output $y$, for a number of examples in your training set, and all these things in the middle, they will figure out by itself. 
 
 So what you actually implement is this. 
 
-```{r fig.margin = FALSE, fig.cap = "Neural Network Inputs", fig.width=3.5, fig.height=3.5, cache=TRUE, echo=FALSE}
+```{r fig.margin = FALSE, fig.cap = "Neural Network with four inputs", fig.width=2.5, fig.height=2.5, cache=TRUE, echo=FALSE, out.width="80%"}
 knitr::include_graphics("./images/what_nn_inputs.jpg")
 ```
 Where, here, you have a neural network with four inputs. So the input features might be:
