@@ -8,3 +8,5 @@ output: html_document
 ## [1. Introduction](w101-introduction.html)
 
 ## [2. What is a Neural Network](w102-what_is_a_neural_network.html)
+
+## [3. Supervised Learning with Neural Networks](w103-supervised_learning_with_neural_networks.html)
