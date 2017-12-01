@@ -21,8 +21,10 @@ options(htmltools.dir.version = FALSE)
 # Introduction
 The term Deep Learning, refers to training Neural Networks, sometimes very large Neural Networks. 
 
- 
 `r newthought('So, what exactly is a Neural Network?')`
+
+ 
+
 
 In this video, let's try to give you some of the basic intuitions. 
 
