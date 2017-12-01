@@ -7,8 +7,9 @@ navbar:
     href: index.html
   - text: Week 1
     href: week_01.html
+  - text: Week 2
+    href: week_02.html
 output:
-  html_document:
-    lib_dir: site_libs
-    self_contained: no
+  tufte::tufte_html:
+    self_contained: yes
 
