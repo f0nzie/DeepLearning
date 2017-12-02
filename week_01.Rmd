@@ -10,3 +10,5 @@ output: html_document
 ## [2. What is a Neural Network](w102-what_is_a_neural_network.html)
 
 ## [3. Supervised Learning with Neural Networks](w103-supervised_learning_with_neural_networks.html)
+
+## [4. Why is Deep Learning taking off](w104-why_is_deep_learning_taking_off.html)
