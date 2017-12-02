@@ -1,6 +1,8 @@
 ---
-title: "Deep Learning Book"
+title: "Deep Learning lectures"
 output: html_document
 ---
 
-Course 1
+## [Week 1](week_01.html) 
+
+## [Week 2](week_02.html)
