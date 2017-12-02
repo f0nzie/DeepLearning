@@ -118,6 +118,8 @@ And again, to use the Python notation, the shape of $Y$ will be $(1, m)$. Which 
 And as you implement your neural network, later in this course, you find that a useful convention would be to take the data associated with different training examples, and by data I mean either $x$ or $y$, or other quantities you see later. But to take the stack or the data associated with different training examples and to stack them in different columns, like we've done here for both x and y. 
 
 
-So, that's a notation we we'll use for a regression and for neural networks networks later in this course.^[If you ever forget what a piece of notation means, like what is $m$ or what is $n$, or what is something else, we've also posted on the course website a notation guide that you can use to quickly look up what any particular piece of notation means.] So with that, let's go on to the next video where we'll start to fetch out logistic regression using this notation.
+So, that's a notation we we'll use for a regression and for neural networks networks later in this course.^[If you ever forget what a piece of notation means, like what is $m$ or what is $n$, or what is something else, we've also posted on the course website a notation guide that you can use to quickly look up what any particular piece of notation means.] 
+
+So with that, let's go on to the next video where we'll start to fetch out logistic regression using this notation.
 
 
