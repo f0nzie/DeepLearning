@@ -8,3 +8,5 @@ output: html_document
 ## [1. Binary Classification](w201-binary_classification.html)
 
 ## [2. Logistic Regression](w202-logistic_regression.html)
+
+(w203-logistic_regression_cost_function.html)
