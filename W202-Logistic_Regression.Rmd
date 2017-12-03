@@ -20,6 +20,10 @@ options(htmltools.dir.version = FALSE)
 [Week 1](week_01.html) [Week 2](week_02.html)
 
 ## Introduction
+```{marginfigure}
+$\mathbb{R}$: the real numbers   
+$\mathbb{R}^{n_x}$: *n* dimensional real number
+```
 In this video, we'll go over `logistic regression`. This is a learning algorithm that you use when the output labels $y$ in a supervised learning problem are all either zero or one, for binary classification problems. 
 
 ## Theory
@@ -90,7 +94,7 @@ And so, $\theta_0$ takes the role of $b$, that's just a real number, and $\theta
 knitr::include_graphics("./images/logreg-theta.jpg")
 ```
 
-In some other courses, you might have seen a notation that handles this differently. In some conventions you define an extra feature called $x_0$ and that equals to one. So that now $x$ is $\mathbb{R}^{n_x + 1}$. And then you define $\hat{y} = \sigma(\theta^T x)$. 
+In some other courses, you might have seen a notation that handles this differently. In some conventions you define an extra feature called $x_0$ and that equals to 1. So, that now $x$ is $\mathbb{R}^{n_x + 1}$. And then you define $\hat{y} = \sigma(\theta^T x)$. 
 
 
 It turns out, when you implement your neural network, it will be easier to just keep $b$ and $w$ as separate parameters. And so, in this class, we will not use any of this notational convention that I just wrote in red. 
