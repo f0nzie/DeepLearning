@@ -64,7 +64,7 @@ I'm now going to define something called the cost function, which measures how w
 So the cost function J which is applied to your parameters $w$ and $b$ is going to be the average with one over m of the sum of the loss function, applied to each of the training examples and turn^[$$J(w, b) = \dfrac{1}{m} \sum_{i=1}^m \mathcal{L(\hat y^{(i)}, y^{(i)})}$$], while here $\hat y$, is, of course, the prediction output by your logistic regression algorithm, using you know, a particular set of parameters $w$ and $b$. 
 
 
-And, so, just to expand this out, this is equal to this^[$$-\dfrac{1}{m} \sum_{i=1}^m [\hat y^{(i)} \log y^{(i)} + (1 - y^{(i)}) \log (1 - \hat y^{(i)})]$$]. I guess I could put square brackets here. So the minus sign is outside everything else. 
+And, so, just to expand this out, this is equal to this^[$$-\dfrac{1}{m} \sum_{i=1}^m [y^{(i)} \log \hat y^{(i)} + (1 - y^{(i)}) \log (1 - \hat y^{(i)})]$$]. I guess I could put square brackets here. So the minus sign is outside everything else. 
 
 So, the terminology I'm going to use is that the loss function is applied to just a single training example, like so^[$\mathcal{L(\hat y^{(i)}, y^{(i)})}$]. And the cost function is the cost of your parameters^[$J(w, b)$]. 
 
