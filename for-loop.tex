@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{algorithm}% http://ctan.org/pkg/algorithm
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+\usepackage{Sweave}
+\begin{document}
+\input{for-loop-concordance}
+
+\algdef{SE}[FOR]{NoDoFor}{EndFor}[1]{\algorithmicfor\ #1}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[IF]{NoThenIf}{EndIf}[1]{\algorithmicif\ #1}{\algorithmicend\ \algorithmicif}%
+\begin{algorithm}
+  \caption{Calculate $y = x^n$}\label{alg1}
+  \begin{algorithmic}[1]
+    \State $y \leftarrow 1$
+    \NoThenIf{$n < 0$}
+      \State $X \leftarrow 1 / x$
+    \EndIf
+    \If{$n > 0$}
+      \State $X \leftarrow 1$
+    \EndIf
+    \NoDoFor{$N \neq 0$}
+      \State $X \leftarrow X \times X$
+    \EndFor
+    \While{$N \neq 0$}
+      \State $X \leftarrow X \times X$
+    \EndWhile
+  \end{algorithmic}
+\end{algorithm}
+\end{document}

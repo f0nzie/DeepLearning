@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{algorithm,algorithmic,amsmath}
+
+\usepackage{Sweave}
+\begin{document}
+\input{for-loop-2-concordance}
+\begin{algorithm}
+    
+  \begin{algorithmic}[1]
+      \FOR{$k \in \{1,\dots, m\}$}
+        \STATE $z^{(i)} = w^T x + b$
+        \STATE $z^{(i)} = w^T x^{(i)} + b$   
+        \STATE $a^{(i)} = \sigma(z^{(i)})$ 
+        \STATE $J+ = -[y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)})]$   
+        \STATE $dz^{(i)} = a^{(i)} - y^{(i)}$ 
+        \STATE $dw_1 += x_1^{(i)} dz^{(i)}   $
+        \STATE $dw_2 += x_2^{(i)} dz^{(i)}   $
+        \STATE $db = += dzdw_1 += x_i^{(i)} dz^{(i)}  $
+        \STATE Generate $\beta_k = (\beta_{k_1},\dots,\beta_{k,V})^T \sim \text{Dirichlet}(\cdot\vert\eta)$
+      \ENDFOR
+  \end{algorithmic}
+\end{algorithm}
+\end{document}

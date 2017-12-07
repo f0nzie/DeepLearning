@@ -1,0 +1,34 @@
+\documentclass{article}
+ 
+\usepackage{algorithm}          %  float wrapper for algorithms.
+\usepackage{algpseudocode}      % layout for algorithmicx
+ 
+\usepackage{amsmath}            % AMS mathematical facilities for LATEX
+ 
+% Nice looking for empty set
+\usepackage{amssymb}            %  provides an extended symbol collection
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+ 
+\usepackage{Sweave}
+\begin{document}
+\input{algorithm-concordance}
+ 
+% algorithm 
+\begin{algorithm}
+    \begin{algorithmic}%[1]
+        \caption{CDS with betweenness centrality} \label{algorithm: cds bw}
+        \Require A connected graph $G(V, E)$
+        \State $d \gets \{v : bw(v)\}, v \in V$, sort by BW on ascending order
+        \State $V' \gets \emptyset$, connected dominating sets
+        \ForAll{$v$ : $bw(v), v \notin V'$}
+            \If{$bw(v) = 0$ OR $G(V-\{v\})$ is connected}
+                \State $V' \gets V' \cup MAX-BW(N(v))$      
+            \Else
+                \State $V' \gets V' \cup \{v\}$
+            \EndIf
+            \State $V \gets V-\{v\}$
+        \EndFor             
+    \end{algorithmic}
+\end{algorithm}
+\end{document}

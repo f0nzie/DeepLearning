@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/questions/84722/slight-change-in-algorithm
+\documentclass[10pt,twocolumn]{article}
+\usepackage{algorithm,algpseudocode}% http://ctan.org/pkg/{algorithms,algorithmx}
+\algnewcommand{\Inputs}[1]{%
+  \State \textbf{Inputs:}
+  \Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+\algnewcommand{\Initialize}[1]{%
+  \State \textbf{Initialize:}
+  \Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+
+\usepackage{Sweave}
+\begin{document}
+\input{boosted-k-concordance}
+\begin{algorithm}
+  \caption{Logistic Regression on $m$ examples}
+  \begin{algorithmic}[1]
+    \Initialize{\strut$J \gets 0$, $dw_1 \gets 0$, $dw_2 \gets 0$, $db \gets 0$}
+    \For{i = 1 to $m$}
+        \State $z^{(i)} = w^T x^{(i)} + b$
+        \State $a^{(i)} = \sigma(z^{(i)})$ 
+        \State $J$ += $-[y^{(i)} \log a^{(i)} + (1-y^{(i)}) \log(1-a^{(i)})]$   
+        \State $dz^{(i)} = a^{(i)} - y^{(i)}$ 
+        \State $dw_1$ += $x_1^{(i)} dz^{(i)}$
+        \State $dw_2$ += $x_2^{(i)} dz^{(i)}$
+        \State $db$ += $dz^{(i)}$
+    \EndFor
+    \State $J$ /= $m$
+    \State $dw_1$ /= $m$; $dw_2$ /=$m$; $db$ /= $m$
+  \end{algorithmic}
+\end{algorithm}
+\end{document}
