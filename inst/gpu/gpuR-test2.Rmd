@@ -1,0 +1,80 @@
+---
+title: "R - GPU Programming for All with gpuR"
+output:
+  html_document:
+    df_print: paged
+---
+
+Source: http://www.parallelr.com/r-gpu-programming-for-all-with-gpur/
+
+
+```{r results='hold', warning=FALSE}
+library(gpuR)
+
+ORDER = 1024
+ 
+A = matrix(rnorm(ORDER^2), nrow=ORDER)
+B = matrix(rnorm(ORDER^2), nrow=ORDER)
+gpuA = gpuMatrix(A, type="double")
+gpuB = gpuMatrix(B, type="double")
+ 
+C = A %*% B
+gpuC = gpuA %*% gpuB
+ 
+all.equal(C, gpuC[])
+# TRUE
+```
+
+The gpuMatrix object points to a matrix in RAM which is then computed by the GPU when a desired function is called.  This avoids R’s habit of copying the memory of objects.  For example:
+
+```{r results='hold'}
+library(pryr)
+ 
+# Initially points to same object
+x = matrix(rnorm(16), 4)
+y = x
+ 
+address(x)
+# "0x77ebdd0"
+
+address(y)
+# "0x77ebdd0"
+ 
+# But once modify the second object it creates a copy
+y[1,1] = 0
+ 
+address(x)
+# "0x77ebdd0"
+
+address(y)
+# "0x75aef00"
+```
+
+In contrast, the same syntax for a gpuMatrix will modify the original object in-place without any copy.
+
+```{r results='hold'}
+library(pryr)
+library(gpuR)
+ 
+# Initially points to same object
+x = gpuMatrix(rnorm(16), 4, 4)
+y = x
+ 
+x@address
+# <pointer: 0x000000001df4d550>
+ 
+y@address
+# <pointer: 0x000000001df4d550>
+ 
+# Modification affects both objects without copy
+y[1,1] = 0
+ 
+x@address
+# <pointer: 0x000000001df4d550>
+ 
+y@address
+# <pointer: 0x000000001df4d550>
+```
+
+Each new variable assigned to this object will only copy the pointer thereby making the program more memory efficient.  However, the `gpuMatrix` class does still require allocating GPU memory and copying data to device for each function call. The most commonly used methods have been overloaded such as  %*%, +, -, *, /, crossprod, tcrossprod, and trig functions among others.  In this way, an R user can create these objects and leverage GPU resources without the need to know a bunch more functions that would break existing algorithms.
+
